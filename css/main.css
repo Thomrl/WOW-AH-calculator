@@ -1,0 +1,11 @@
+body {
+    background-color: #c5cfe0;
+    margin-top:1rem;
+}
+
+.container { min-width:88%; }
+
+.boxOfInputs input, p {
+    display: inline-block;
+    margin: 0 5px;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+        <title>Auction Calculator for World of Warcraft</title>
+    </head>
+    <body>
+        <div class="container">
+            <div> Stacks  |  Quantity  |  Price </div>
+            <div class="boxOfInputs">
+                <input type="number" id="stacks" value="1"><p> stack of </p><input type="number" id="quantity" placeholder="quantity"><p> for </p><input type="number" id="price" placeholder="price"><button id="action">Calculate</button>
+                <br><input type="number" id="sell-price" placeholder="optional sell price">
+            </div>
+            <div class="plusInputs">
+                <input type="radio" id="one"><input type="radio" id="two"><input type="radio" id="three">
+            </div>
+            <div class="buying">
+                <ul>Buying
+                    <li>Item Price: <span id="buying-item-price">0</span>g</li>
+                    <li>Stack Price: <span id="buying-stack-price">0</span>g</li>
+                    <li>Total Price: <span id="buying-total-price">0</span>g</li>
+                </ul>
+            <div class="selling">
+                <ul>Selling
+                    <li>Item Price: <span id="selling-item-price">0</span>g</li>
+                    <li>Stack Price: <span id="selling-stack-price">0</span>g</li>
+                    <li>Total Price: <span id="selling-total-price">0</span>g</li>
+                </ul>
+            <div>
+                <ul>Profit
+                    <li>Profit: <span id="profit1">0</span>g</li>
+                </ul>
+            </div>
+
+            <br><br><br>
+            <p>Work in progress.. Improvements are coming!</p>
+
+
+
+    <script src="js/script.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
