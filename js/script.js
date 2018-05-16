@@ -7,25 +7,35 @@ var DOMdeposit = document.getElementById('selling-deposit-cost').value;
 var DOMtotalAfterDeposit = document.getElementById('selling-income-deposit').value;
 var DOMprofitAfterDeposit = document.getElementById('profit-after-deposit').value;
 */
+var durationCost = 0.15;
 
-function calculate(type) {
 
+function calculate(type, durr) {
+
+    //Getting the user input.
 	DOMquantity = document.getElementById('quantity').value;
 	DOMstacks = document.getElementById('stacks').value;
 	DOMprice = document.getElementById('price').value;
+    DOMmsv = document.getElementById('msv').value;
 
+
+    //Output fields
 	DOMitemPrice = document.getElementById(type+'-item-price');
 	DOMstackPrice = document.getElementById(type+'-stack-price');
 	DOMtotalPrice = document.getElementById(type+'-total-price');
 	DOMprofit = document.getElementById('profit-profit');
-    DOMmsv = document.getElementById('msv').value;
     DOMdeposit = document.getElementById('selling-deposit-cost');
-    DOMtotalAfterDeposit = document.getElementById('selling-income-deposit');
-    DOMprofitAfterDeposit = document.getElementById('profit-after-deposit');
+    //DOMtotalAfterDeposit = document.getElementById('selling-income-deposit');
+    //DOMprofitAfterDeposit = document.getElementById('profit-after-deposit');
 
     //Buying
 	if (type === 'buying') {
-		DOMitemPrice.textContent = DOMprice;
+		//Just so Item Price always has a number.
+		if (DOMprice === "") {
+		    DOMitemPrice.textContent = 0;
+		} else {
+		    DOMitemPrice.textContent = DOMprice;
+		};
 		DOMstackPrice.textContent = DOMquantity*DOMprice;
 		DOMtotalPrice.textContent = (DOMstacks*DOMquantity)*DOMprice;
 
@@ -41,37 +51,71 @@ function calculate(type) {
 		DOMstackPrice.textContent = DOMquantity*sellPrice-(0.05*(DOMquantity*sellPrice));
 		temp = (DOMstacks*DOMquantity)*sellPrice;
 		totalPrice = temp-(0.05*temp);
-		DOMtotalPrice.textContent = temp-(0.05*temp);
+		deposit = (DOMmsv*durr)*(DOMquantity*DOMstacks);
+		totalAfterDeposit = totalPrice-deposit;
+		DOMtotalPrice.textContent = totalAfterDeposit;
 
-		deposit = (DOMmsv*0.15)*(DOMquantity*DOMstacks);
 		DOMdeposit.textContent = deposit;
 
-		totalAfterDeposit = totalPrice-deposit;
-		DOMtotalAfterDeposit.textContent = totalAfterDeposit;
+		//DOMtotalAfterDeposit.textContent = totalAfterDeposit;
 
     //Profit
 	} else if (type === 'profit') {
 		btp = document.getElementById('buying-total-price').innerHTML;
-		stp = document.getElementById('selling-total-price').innerHTML;	
-		profit = stp-btp;
-		DOMprofit.textContent = profit;
-
+		//stp = document.getElementById('selling-total-price').innerHTML;	
+		//profit = stp-btp;
 		profitAfterDeposit = totalAfterDeposit-btp;
-		DOMprofitAfterDeposit.textContent = profitAfterDeposit;
+		DOMprofit.textContent = profitAfterDeposit;
+
+		//DOMprofitAfterDeposit.textContent = profitAfterDeposit;
 	}
 }
 
-document.getElementById('action').addEventListener('click', function(){calculate('buying')});
-document.getElementById('action').addEventListener('click', function(){calculate('selling')});
-document.getElementById('action').addEventListener('click', function(){calculate('profit')});
+document.getElementById('action').addEventListener('click', function(){calculate('buying', durationCost)});
+document.getElementById('action').addEventListener('click', function(){calculate('selling', durationCost)});
+document.getElementById('action').addEventListener('click', function(){calculate('profit', durationCost)});
+
+function removeActive() {
+	for (i = 1; i<4; i++) {
+	    document.getElementById('duration-'+i).classList.remove('active');
+	}
+}
+
+function callIt() {
+	calculate('buying', durationCost);
+	calculate('selling', durationCost);
+	calculate('profit', durationCost);
+};
+
+//12 hour duration
+document.getElementById('duration-1').addEventListener('click', function(){
+	removeActive();
+	document.getElementById('duration-1').classList.add('active');
+	durationCost = 0.15;
+	callIt();
+})
+
+//24 hour duration
+document.getElementById('duration-2').addEventListener('click', function(){
+	removeActive();
+	document.getElementById('duration-2').classList.add('active');
+	durationCost = 0.30;
+	callIt();
+})
+
+//48 hour duration
+document.getElementById('duration-3').addEventListener('click', function(){
+	removeActive();
+	document.getElementById('duration-3').classList.add('active');
+	durationCost = 0.60;
+	callIt();
+})
 
 
 //Click enter to add player
 window.addEventListener('keydown', function(e) {
 	if (e.keyCode === 13) {
-		calculate('buying');
-		calculate('selling');
-		calculate('profit');
+		callIt()
 	}
 })
 
