@@ -14,7 +14,7 @@
             <div> Stacks  |  Quantity  |  Price </div>
             <div class="boxOfInputs">
                 <input type="number" id="stacks" value="1"><p> stack of </p><input type="number" id="quantity" placeholder="quantity"><p> for </p><input type="number" id="price" placeholder="price"><button id="action">Calculate</button>
-                <br><input type="number" id="sell-price" placeholder="optional sell price">
+                <br><p>For selling -></p><input type="number" id="sell-price" placeholder="optional sell price"><input type="number" id="msv" placeholder="Items vendor sell price">
             </div>
             <div class="plusInputs">
                 <input type="radio" id="one"><input type="radio" id="two"><input type="radio" id="three">
@@ -27,18 +27,24 @@
                 </ul>
             <div class="selling">
                 <ul>Selling
-                    <li>Item Price: <span id="selling-item-price">0</span>g</li>
-                    <li>Stack Price: <span id="selling-stack-price">0</span>g</li>
-                    <li>Total Price: <span id="selling-total-price">0</span>g</li>
+                    <li>Item Income: <span id="selling-item-price">0</span>g</li>
+                    <li>Stack Income: <span id="selling-stack-price">0</span>g</li>
+                    <li>Total Income: <span id="selling-total-price">0</span>g</li>
+                    <li>Deposit Cost: <span id="selling-deposit-cost">0</span>g</li>
+                    <li>Total After Deposit Cost: <span id="selling-income-deposit">0</span>g</li>
                 </ul>
             <div>
-                <ul>Profit
-                    <li>Profit: <span id="profit1">0</span>g</li>
+                <ul>profit
+                    <li>Profit: <span id="profit-profit">0</span>g</li>
+                    <li>Profit After Deposit: <span id="profit-after-deposit">0</span>g</li>
                 </ul>
             </div>
 
             <br><br><br>
             <p>Work in progress.. Improvements are coming!</p>
+            <br>
+            <p>Right now it is just intended for factioned acution houses, with selling duration 12 hours.</p>
+
 
 
 

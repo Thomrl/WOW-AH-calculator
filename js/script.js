@@ -1,8 +1,12 @@
-var DOMquantity = document.getElementById('quantity').value;
+/*var DOMquantity = document.getElementById('quantity').value;
 var DOMstacks = document.getElementById('stacks').value;
 var DOMprice = document.getElementById('price').value;
-var DOMprofit = document.getElementById('profit1').value;
-
+var DOMprofit = document.getElementById('profit-profit').value;
+var DOMmsv = document.getElementById('msv').value;
+var DOMdeposit = document.getElementById('selling-deposit-cost').value;
+var DOMtotalAfterDeposit = document.getElementById('selling-income-deposit').value;
+var DOMprofitAfterDeposit = document.getElementById('profit-after-deposit').value;
+*/
 
 function calculate(type) {
 
@@ -13,16 +17,23 @@ function calculate(type) {
 	DOMitemPrice = document.getElementById(type+'-item-price');
 	DOMstackPrice = document.getElementById(type+'-stack-price');
 	DOMtotalPrice = document.getElementById(type+'-total-price');
-	DOMprofit = document.getElementById('profit1');
+	DOMprofit = document.getElementById('profit-profit');
+    DOMmsv = document.getElementById('msv').value;
+    DOMdeposit = document.getElementById('selling-deposit-cost');
+    DOMtotalAfterDeposit = document.getElementById('selling-income-deposit');
+    DOMprofitAfterDeposit = document.getElementById('profit-after-deposit');
 
+    //Buying
 	if (type === 'buying') {
 		DOMitemPrice.textContent = DOMprice;
 		DOMstackPrice.textContent = DOMquantity*DOMprice;
 		DOMtotalPrice.textContent = (DOMstacks*DOMquantity)*DOMprice;
+
+	//Selling
 	} else if (type === 'selling') {
 
 		if (document.getElementById('sell-price') !== 0) {
-			sellPrice = document.getElementById('sell-price').value
+			sellPrice = document.getElementById('sell-price').value;
 		} else {
 			sellPrice = DOMprice;
 		}
@@ -32,11 +43,21 @@ function calculate(type) {
 		totalPrice = temp-(0.05*temp);
 		DOMtotalPrice.textContent = temp-(0.05*temp);
 
+		deposit = (DOMmsv*0.15)*(DOMquantity*DOMstacks);
+		DOMdeposit.textContent = deposit;
+
+		totalAfterDeposit = totalPrice-deposit;
+		DOMtotalAfterDeposit.textContent = totalAfterDeposit;
+
+    //Profit
 	} else if (type === 'profit') {
 		btp = document.getElementById('buying-total-price').innerHTML;
 		stp = document.getElementById('selling-total-price').innerHTML;	
 		profit = stp-btp;
 		DOMprofit.textContent = profit;
+
+		profitAfterDeposit = totalAfterDeposit-btp;
+		DOMprofitAfterDeposit.textContent = profitAfterDeposit;
 	}
 }
 
