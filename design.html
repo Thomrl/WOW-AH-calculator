@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="css/try.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+        <title>Auction Profit Calculator for World of Warcraft</title>
+    </head>
+    <body>
+        <div class="container">
+            <a href="index.html">Back to normal</a><br>
+            <div class="boxOfInputs">
+                <h4>General</h4>
+                <input type="number" id="stacks" placeholder="stack(s)"><p id="stacksOf"> stack(s) of </p><input type="number" id="quantity" placeholder="quantity">
+                <h4>Buying</h4>
+                <input type="number" id="price" placeholder="buying price">
+                <br>
+                <h4>Selling</h4>
+                <input type="number" id="sell-price" placeholder="Selling price">
+                <br><input type="number" id="msv" placeholder="Items vendor sell price">
+                <br>
+                <p>Duration: </p><button class="duration active" id="duration-1">12</button><button class="duration" id="duration-2">24</button><button class="duration" id="duration-3">48</button>
+                <br><button id="action">Calculate</button>
+            </div>
+            <div class="boxOfOutputs">
+                <div class="buying">
+                    <h4>Buying</h4>
+                    <ul>Buying
+                        <li>Item Price: <span id="buying-item-price">0</span>g</li>
+                        <li>Stack Price: <span id="buying-stack-price">0</span>g</li>
+                        <li>Total Price: <span id="buying-total-price">0</span>g</li>
+                    </ul>
+                </div>
+                <div class="selling">
+                    <h4>Selling</h4>
+                    <ul>Income
+                        <li>Item Income: <span id="selling-item-price">0</span>g</li>
+                        <li>Stack Income: <span id="selling-stack-price">0</span>g</li>
+                        <li>Total Income: <span id="selling-total-price">0</span>g</li>
+                        <li>Profit: <span id="profit-profit">0</span>g</li>
+                        <!--<li>Total After Deposit Cost: <span id="selling-income-deposit">0</span>g</li>-->
+                    </ul>
+                    <ul>Selling - deposit
+                        <li>Item Deposit Cost: <span id="deposit-item-cost">0</span>g</li>
+                        <li>Stack Deposit Cost: <span id="deposit-stack-cost">0</span>g</li>
+                        <li>Total Deposit Cost: <span id="deposit-total-cost">0</span>g</li>
+                    </ul>
+                </div>
+            </div>
+
+            <br><br><br>
+            <p>Work in progress.. Improvements are coming!</p>
+            <br>
+            <p>Right now it is just for factioned auction houses.<br><br>
+            Deposit cost is calculated from duration, vendor sell price, and of course how much you are going to sell.</p>
+
+
+
+
+    <script src="js/script.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>

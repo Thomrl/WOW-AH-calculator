@@ -3,7 +3,7 @@ var DOMstacks = document.getElementById('stacks').value;
 var DOMprice = document.getElementById('price').value;
 var DOMprofit = document.getElementById('profit-profit').value;
 var DOMmsv = document.getElementById('msv').value;
-var DOMdeposit = document.getElementById('selling-deposit-cost').value;
+var DOMtotalDeposit = document.getElementById('deposit-total-cost').value;
 var DOMtotalAfterDeposit = document.getElementById('selling-income-deposit').value;
 var DOMprofitAfterDeposit = document.getElementById('profit-after-deposit').value;
 */
@@ -24,7 +24,9 @@ function calculate(type, durr) {
 	DOMstackPrice = document.getElementById(type+'-stack-price');
 	DOMtotalPrice = document.getElementById(type+'-total-price');
 	DOMprofit = document.getElementById('profit-profit');
-    DOMdeposit = document.getElementById('selling-deposit-cost');
+    DOMitemDeposit = document.getElementById('deposit-item-cost');
+    DOMstackDeposit = document.getElementById('deposit-stack-cost');
+    DOMtotalDeposit = document.getElementById('deposit-total-cost');
     //DOMtotalAfterDeposit = document.getElementById('selling-income-deposit');
     //DOMprofitAfterDeposit = document.getElementById('profit-after-deposit');
 
@@ -51,11 +53,16 @@ function calculate(type, durr) {
 		DOMstackPrice.textContent = DOMquantity*sellPrice-(0.05*(DOMquantity*sellPrice));
 		temp = (DOMstacks*DOMquantity)*sellPrice;
 		totalPrice = temp-(0.05*temp);
-		deposit = (DOMmsv*durr)*(DOMquantity*DOMstacks);
-		totalAfterDeposit = totalPrice-deposit;
-		DOMtotalPrice.textContent = totalAfterDeposit;
+		//Deposit
+		itemDeposit = DOMmsv*durr;
+		stackDeposit = (DOMmsv*durr)*DOMquantity;
+		totalDeposit = (DOMmsv*durr)*(DOMquantity*DOMstacks);
+		totalAfterDeposit = totalPrice-totalDeposit;
+		DOMtotalPrice.textContent = totalAfterDeposit.toFixed(2);
 
-		DOMdeposit.textContent = deposit;
+		DOMitemDeposit.textContent = itemDeposit.toFixed(2);
+		DOMstackDeposit.textContent = stackDeposit.toFixed(2);
+		DOMtotalDeposit.textContent = totalDeposit.toFixed(2);
 
 		//DOMtotalAfterDeposit.textContent = totalAfterDeposit;
 
@@ -65,7 +72,7 @@ function calculate(type, durr) {
 		//stp = document.getElementById('selling-total-price').innerHTML;	
 		//profit = stp-btp;
 		profitAfterDeposit = totalAfterDeposit-btp;
-		DOMprofit.textContent = profitAfterDeposit;
+		DOMprofit.textContent = profitAfterDeposit.toFixed(2);
 
 		//DOMprofitAfterDeposit.textContent = profitAfterDeposit;
 	}
