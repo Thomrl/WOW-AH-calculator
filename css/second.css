@@ -1,0 +1,35 @@
+body {
+    background-color: #c5cfe0;
+    margin-top:1rem;
+}
+
+.container {
+    min-width:88%;
+    padding: 20px 15px; }
+
+.boxOfInputs input, p {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.active {
+    background: red;
+}
+
+#design {
+    color: #007bff;
+}
+
+.switch {
+    display: none;
+}
+
+
+#design:hover {
+    cursor: pointer;
+    text-decoration-line: underline;
+}
+
+a {
+    margin: 0 0 0 5px;
+}

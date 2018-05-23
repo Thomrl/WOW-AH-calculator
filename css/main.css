@@ -1,15 +1,86 @@
 body {
+    background-image: url("https://i.pinimg.com/736x/ed/94/35/ed9435757f174178244705fb7860c004--hand-painted-textures-material.jpg");
     background-color: #c5cfe0;
+    color: black;
     margin-top:1rem;
 }
 
-.container { min-width:88%; }
+.container { 
+    min-width:88%;
+    padding: 20px 15px;
+    background-color: rgba(197, 207, 224, 0.9);
+}
 
 .boxOfInputs input, p {
     display: inline-block;
     margin: 0 5px;
 }
 
+#design {
+    color: #007bff;
+}
+
+#design:hover {
+    cursor: pointer;
+    text-decoration-line: underline;
+}
+
+
+
 .active {
-    background: red;
+    background: #b70000;
+    color: white;
+}
+
+
+.boxOfInputs, .boxOfOutputs , .selling, .buying {
+    display: inline-table;
+}
+
+
+ul {    
+    display: inline-table;
+    margin: 1px;
+    padding: 5px 30px;
+    list-style: none;
+    /*border: solid 2px black;
+    border-radius: 20px;*/
+}   
+
+ul > span {
+    position: absolute;
+}
+
+.bigButton > button {
+    position: absolute;
+}
+
+#stacks, #quantity {
+    height: 45px;
+    width: 58px;
+    border-radius: 4px;
+    border: solid 1px grey;
+    text-align: center;
+    padding: 0; 
+    font-size: 0.75rem;
+}
+
+button {
+    background-color: #5b0000;
+    color: #EEAE7C;
+    border-radius: 8px;
+}
+
+#stacksOf {
+    font-size: 0.75rem;
+    padding: 0;
+    margin: 0;
+}
+
+#action {
+    width: 178px;
+}
+
+a {
+    margin: 0 0 0 5px;
 }
